@@ -16,11 +16,15 @@ struct FrameworkGridView: View {
     
     
     var body: some View {
-        LazyVGrid(columns: columns) {
-            ForEach(MockData.frameworks) { framework in
-                FrameworkTitleView(framework: framework)
+        NavigationView {
+            ScrollView{
+                LazyVGrid(columns: columns) {
+                    ForEach(MockData.frameworks) { framework in
+                        FrameworkTitleView(framework: framework)
+                    }
+                }
             }
-
+            .navigationTitle("📱FrameWorks")
         }
     }
 }
@@ -45,5 +49,5 @@ struct FrameworkTitleView: View {
                 .minimumScaleFactor(0.6)
         }
     }
-   
+    
 }
