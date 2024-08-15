@@ -18,7 +18,7 @@ struct FrameworkGridView: View {
     var body: some View {
         NavigationView {
             ScrollView{
-                LazyVGrid(columns: columns) {
+                LazyVGrid(columns: columns) { 
                     ForEach(MockData.frameworks) { framework in
                         FrameworkTitleView(framework: framework)
                     }
