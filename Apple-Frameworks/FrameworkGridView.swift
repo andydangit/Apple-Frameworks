@@ -18,7 +18,7 @@ struct FrameworkGridView: View {
     
     var body: some View {
         LazyVGrid(columns: columns) {
-            ForEach(MockData.frameworks, id: \.self) { framework in
+            ForEach(MockData.frameworks) { framework in
                 FrameworkTitleView(name: framework.name, imageName: framework.imageName)
             }
 
