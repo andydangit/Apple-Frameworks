@@ -15,11 +15,10 @@ struct FrameworkGridView: View {
     ]
     
     
-    
     var body: some View {
         LazyVGrid(columns: columns) {
             ForEach(MockData.frameworks) { framework in
-                FrameworkTitleView(name: framework.name, imageName: framework.imageName)
+                FrameworkTitleView(framework: framework)
             }
 
         }
@@ -28,18 +27,18 @@ struct FrameworkGridView: View {
 
 #Preview {
     FrameworkGridView()
+        .preferredColorScheme(.dark)
 }
 
 struct FrameworkTitleView: View {
-    let name: String
-    let imageName: String
+    let framework: Framework
     
     var body: some View {
         VStack{
-            Image(imageName)
+            Image(framework.imageName)
                 .resizable()
                 .frame(width: 90, height: 90)
-            Text(name)
+            Text(framework.name)
                 .font(.title2)
                 .fontWeight(.semibold)
                 .scaledToFit()
