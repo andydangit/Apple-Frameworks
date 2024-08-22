@@ -30,6 +30,10 @@ struct FrameworkGridView: View {
                 }
             }
             .navigationTitle("📱FrameWorks")
+            .sheet(isPresented: $viewModel.isShowingDetailView) {
+                FrameworkDetailView (framework: viewModel.selectedFramework
+                                     ?? MockData.sampleFramework)
+            }
         }
     }
 }
